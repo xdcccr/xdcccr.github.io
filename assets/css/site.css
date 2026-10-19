@@ -568,66 +568,7 @@ img { max-width: 100%; height: auto; }
 }
 .software p { margin: .5rem 0 .8rem; font-size: .94rem; color: var(--ink-2); max-width: 40rem; }
 
-/* ---------------------------------------------------------------- notes */
 
-.notes-list { list-style: none; margin: 0; padding: 0; }
-.notes-list > li { padding: 1.15rem 0; border-bottom: 1px solid var(--rule); }
-.notes-list > li:first-child { border-top: 1px solid var(--rule); }
-.notes-list h3 {
-  margin: .25rem 0 .3rem;
-  font-family: var(--display);
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-.notes-list h3 a { text-decoration-color: var(--rule-strong); }
-.notes-list p { margin: 0; color: var(--ink-2); font-size: .94rem; }
-
-.empty-state {
-  border: 1px dashed var(--rule-strong);
-  border-radius: 4px;
-  padding: 1.6rem;
-  color: var(--ink-3);
-  background: var(--space-raised);
-}
-
-/* ---------------------------------------------------------------- prose pages */
-
-.prose { max-width: var(--measure); }
-.prose h2 {
-  font-family: var(--display);
-  font-size: 1.45rem;
-  margin: 2.5rem 0 .7rem;
-  font-weight: 600;
-}
-.prose h3 { font-size: 1.05rem; margin: 1.9rem 0 .5rem; font-weight: 600; }
-.prose ul, .prose ol { max-width: var(--measure); padding-left: 1.3rem; }
-.prose li { margin-bottom: .45rem; }
-
-.callout {
-  border-left: 2px solid var(--accent);
-  background: var(--accent-soft);
-  padding: 1rem 1.25rem;
-  margin: 1.7rem 0;
-  border-radius: 0 3px 3px 0;
-  max-width: var(--measure);
-}
-.callout p { margin-bottom: .6rem; }
-.callout p:last-child { margin-bottom: 0; }
-
-pre {
-  background: var(--space-sunk);
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  padding: .95rem 1.05rem;
-  overflow-x: auto;
-  font-family: var(--mono);
-  font-size: .76rem;
-  line-height: 1.6;
-  max-width: 45rem;
-  color: var(--ink-2);
-}
-code { font-family: var(--mono); font-size: .88em; }
-pre code { font-size: inherit; color: inherit; }
 
 /* A real quotation from Foundation, with its attribution and the one line
    connecting it to the work. Verified against the text — see the comment in
