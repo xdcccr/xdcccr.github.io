@@ -1,0 +1,689 @@
+/* ===========================================================================
+   Xiaoyue Xiong — personal site
+   One stylesheet for the whole site. Plain CSS, no build step.
+
+   Direction: "Terminus" — deep blue-black, a cool palette, one warm gold used
+   as punctuation, and composition doing most of the work. The bibliography
+   keeps the scholarly typography of the archival draft: numbered entries,
+   hanging indents, the author's own name marked in gold.
+
+   To change the colours, edit the custom properties in the two :root blocks
+   below and nothing else. Everything on the site reads from them.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------- tokens */
+
+/* Dark is the default here, unconditionally — it is the identity of this
+   design, not a response to a system setting. Readers who want light can
+   press the toggle in the header, and that choice is remembered. */
+:root {
+  --space:        #0b0f1a;
+  --space-raised: #121826;
+  --space-sunk:   #090d16;
+
+  --ink:   #e8eaf0;  /* 15.6:1 on --space */
+  --ink-2: #aeb6c8;  /*  8.7:1 */
+  --ink-3: #8089a0;  /*  5.3:1 — the lightest text used anywhere */
+
+  --rule:        #1e2638;
+  --rule-strong: #2e3850;
+
+  --accent:      #d9b45b;  /* warm gold — 9.6:1 on --space */
+  --accent-soft: #151c2b;
+  --on-accent:   #0b0f1a;  /* text sitting on a filled gold button */
+
+  --star:   rgba(232, 234, 240, .55);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+
+  /* type */
+  --display: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, "Cascadia Mono",
+             Consolas, "Liberation Mono", monospace;
+
+  /* rhythm */
+  --measure: 36rem;     /* ~70 characters of prose */
+  --gutter:  4.25rem;   /* left column holding section numerals */
+  --page:    64rem;
+
+  color-scheme: dark;
+}
+
+/* Light, only when the reader asks for it. */
+:root[data-theme="light"] {
+  --space:        #f7f8fa;
+  --space-raised: #eef1f6;
+  --space-sunk:   #e6eaf2;
+
+  --ink:   #10151f;
+  --ink-2: #39414f;
+  --ink-3: #5a6375;
+
+  --rule:        #dde2eb;
+  --rule-strong: #c3cad8;
+
+  --accent:      #8a6a12;  /* the same gold, darkened to hold contrast on white */
+  --accent-soft: #f3eedf;
+  --on-accent:   #ffffff;
+
+  --star:   rgba(16, 21, 31, .35);
+  --shadow: 0 1px 2px rgba(16, 21, 31, .08);
+
+  color-scheme: light;
+}
+
+/* ---------------------------------------------------------------- base */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--space);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0313rem;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+p { margin: 0 0 1.1em; max-width: var(--measure); }
+p:last-child { margin-bottom: 0; }
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+a:hover { color: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img { max-width: 100%; height: auto; }
+
+.skip {
+  position: absolute;
+  left: -9999px; top: 0;
+  background: var(--space-raised);
+  color: var(--ink);
+  padding: .7rem 1.1rem;
+  border: 1px solid var(--rule-strong);
+  z-index: 100;
+}
+.skip:focus { left: .75rem; top: .75rem; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%);
+  overflow: hidden; white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- bits */
+
+.wrap {
+  max-width: var(--page);
+  margin-inline: auto;
+  padding-inline: 1.75rem;
+}
+
+/* Small wide-tracked mono label — the structural voice of this design. */
+.kicker {
+  font-family: var(--mono);
+  font-size: .67rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-size: .78rem;
+  color: var(--ink-3);
+}
+
+/* Her name inside a citation. Scannable without being loud. */
+.me { color: var(--accent); font-weight: 600; }
+
+/* ---------------------------------------------------------------- colophon + nav */
+
+.colophon {
+  border-bottom: 1px solid var(--rule);
+  background: var(--space-sunk);
+}
+.colophon .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.8rem;
+  padding-block: .6rem;
+}
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--space) 90%, transparent);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+@supports not (backdrop-filter: blur(10px)) {
+  .masthead { background: var(--space); }
+}
+
+.masthead .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: .85rem;
+}
+
+.brand {
+  font-family: var(--mono);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .25rem 1.3rem;
+}
+.nav a {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration: none;
+  padding-block: .2rem;
+  border-bottom: 1px solid transparent;
+}
+.nav a:hover,
+.nav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
+
+#theme-toggle {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  padding: .32rem .62rem;
+  cursor: pointer;
+}
+#theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+#theme-toggle[hidden] { display: none; }
+
+/* ---------------------------------------------------------------- hero */
+
+/* Spacious, but deliberately NOT full-viewport: the next section has to be
+   visible, and the publication list has to stay one scroll away. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 9vw, 6.5rem) clamp(3rem, 7vw, 5rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* A sparse, completely static star field. No canvas, no animation, nothing
+   to pause — so it costs nothing and needs no reduced-motion special case. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.4px 1.4px at 12% 18%,  var(--star), transparent 100%),
+    radial-gradient(1px   1px   at 27% 62%,  var(--star), transparent 100%),
+    radial-gradient(1.6px 1.6px at 41% 11%,  var(--star), transparent 100%),
+    radial-gradient(1px   1px   at 56% 44%,  var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 68% 23%,  var(--star), transparent 100%),
+    radial-gradient(1px   1px   at 73% 78%,  var(--star), transparent 100%),
+    radial-gradient(1.5px 1.5px at 84% 37%,  var(--star), transparent 100%),
+    radial-gradient(1px   1px   at 91% 66%,  var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 33% 86%,  var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 7%  74%,  var(--star), transparent 100%),
+    radial-gradient(1px   1px   at 62% 91%,  var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 95% 14%,  var(--star), transparent 100%);
+  opacity: .5;
+}
+
+/* One faint arc, far behind everything — a horizon rather than a galaxy. */
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -28%;
+  top: -42%;
+  width: 92%;
+  aspect-ratio: 1;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  opacity: .5;
+  pointer-events: none;
+}
+
+.hero > .wrap { position: relative; z-index: 1; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 14rem;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.9rem, 9vw, 5.4rem);
+  line-height: .98;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  margin: .75rem 0 1.1rem;
+  font-variant-numeric: lining-nums;
+  text-wrap: balance;
+}
+
+.roles {
+  margin: 0 0 1.5rem;
+  color: var(--ink-2);
+  font-size: .93rem;
+  line-height: 1.55;
+}
+.roles span { display: block; }
+.roles .advisors { color: var(--ink-3); font-size: .87rem; margin-top: .3rem; }
+
+.lede {
+  font-size: clamp(1.15rem, 2.1vw, 1.35rem);
+  line-height: 1.5;
+  max-width: 31rem;
+  margin-bottom: 2rem;
+  text-wrap: pretty;
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem .7rem;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--mono);
+  font-size: .71rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .58rem .95rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  color: var(--ink-2);
+  background: transparent;
+}
+.btn:hover { color: var(--accent); border-color: var(--accent); }
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+}
+.btn-primary:hover { color: var(--on-accent); filter: brightness(1.08); }
+
+/* photo + facts column */
+.portrait {
+  width: 104px;         /* the source image is only 210px square — showing it */
+  height: 104px;        /* larger than this makes it visibly soft */
+  border-radius: 3px;
+  border: 1px solid var(--rule-strong);
+  padding: 4px;
+  background: var(--space-raised);
+  object-fit: cover;
+  display: block;
+}
+
+.facts {
+  margin: 1.6rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+.facts div {
+  padding: .75rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.facts dt { margin-bottom: .2rem; }
+.facts dd {
+  margin: 0;
+  font-size: .88rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+/* the quiet "there is more below" cue */
+.continue {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  color: var(--ink-3);
+}
+.continue:hover { color: var(--accent); }
+.continue::before {
+  content: "";
+  width: 2.2rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ---------------------------------------------------------------- sections */
+
+.section {
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  gap: 0 1.75rem;
+  padding-block: clamp(2.6rem, 6vw, 4.2rem);
+  border-top: 1px solid var(--rule);
+}
+.section:first-of-type { border-top: 0; }
+
+.section > .num { grid-column: 1; padding-top: .7rem; }
+.section > .body { grid-column: 2; }
+
+.section h2 {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -.015em;
+  margin: 0 0 .4rem;
+  font-variant-numeric: lining-nums;
+}
+
+.section-note {
+  color: var(--ink-3);
+  font-size: .94rem;
+  margin-bottom: 2.1rem;
+  max-width: var(--measure);
+}
+
+.subhead {
+  margin: 2.8rem 0 1rem;
+  padding-bottom: .45rem;
+  border-bottom: 1px solid var(--rule);
+}
+/* Only drop the top margin when the subhead really is the first thing in the
+   section — not merely the first h3, which would collapse the space after a
+   preceding paragraph. */
+.body > .subhead:first-child { margin-top: 0; }
+
+/* ---------------------------------------------------------------- lists */
+
+.records { margin: 0; }
+.records > div {
+  display: grid;
+  grid-template-columns: 7.75rem minmax(0, 1fr) auto;
+  gap: .3rem 1.35rem;
+  padding: .9rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.records > div:first-child { border-top: 1px solid var(--rule); }
+.records .what { font-weight: 500; }
+.records .where { color: var(--ink-3); font-size: .88rem; display: block; font-weight: 400; }
+.records .amount { font-family: var(--mono); font-size: .78rem; color: var(--accent); white-space: nowrap; }
+
+/* research themes */
+.themes { margin: 0; }
+.themes > div {
+  display: grid;
+  grid-template-columns: 13.5rem minmax(0, 1fr);
+  gap: .4rem 1.75rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.themes > div:first-child { border-top: 1px solid var(--rule); }
+.themes h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.themes h3 a { text-decoration-color: var(--rule-strong); }
+.themes p { margin: 0; font-size: .94rem; color: var(--ink-2); max-width: 34rem; }
+.themes .tag { display: block; margin-top: .3rem; }
+
+/* ---------------------------------------------------------------- bibliography */
+
+/* Native <ol> numbering rather than a CSS counter, so that start="7" on the
+   second list continues the sequence instead of restarting at 1. */
+.bib {
+  list-style: decimal;
+  margin: 0;
+  padding-left: 2.4rem;
+}
+
+.bib > li {
+  padding: 0 0 1.2rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--rule);
+  max-width: 45rem;
+  text-wrap: pretty;
+  color: var(--ink-2);
+}
+.bib > li:last-child { border-bottom: 0; margin-bottom: 0; }
+
+.bib > li::marker {
+  font-family: var(--mono);
+  font-size: .7rem;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.bib .title { color: var(--ink); font-weight: 500; }
+.bib .venue { font-style: italic; }
+.bib .status {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  padding: .1rem .4rem;
+  white-space: nowrap;
+}
+
+.bib .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem .9rem;
+  margin-top: .5rem;
+}
+.bib .links a {
+  font-family: var(--mono);
+  font-size: .7rem;
+  color: var(--ink-3);
+  text-decoration-color: var(--rule-strong);
+  overflow-wrap: anywhere;
+}
+.bib .links a:hover { color: var(--accent); }
+
+/* ---------------------------------------------------------------- software */
+
+.software { display: grid; gap: 1.1rem; margin: 0; }
+
+.software article {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.3rem 1.5rem;
+  background: var(--space-raised);
+}
+.software h3 {
+  margin: 0 0 .15rem;
+  font-size: 1.05rem;
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: -.005em;
+}
+.software p { margin: .5rem 0 .8rem; font-size: .94rem; color: var(--ink-2); max-width: 40rem; }
+
+/* ---------------------------------------------------------------- notes */
+
+.notes-list { list-style: none; margin: 0; padding: 0; }
+.notes-list > li { padding: 1.15rem 0; border-bottom: 1px solid var(--rule); }
+.notes-list > li:first-child { border-top: 1px solid var(--rule); }
+.notes-list h3 {
+  margin: .25rem 0 .3rem;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.notes-list h3 a { text-decoration-color: var(--rule-strong); }
+.notes-list p { margin: 0; color: var(--ink-2); font-size: .94rem; }
+
+.empty-state {
+  border: 1px dashed var(--rule-strong);
+  border-radius: 4px;
+  padding: 1.6rem;
+  color: var(--ink-3);
+  background: var(--space-raised);
+}
+
+/* ---------------------------------------------------------------- prose pages */
+
+.prose { max-width: var(--measure); }
+.prose h2 {
+  font-family: var(--display);
+  font-size: 1.45rem;
+  margin: 2.5rem 0 .7rem;
+  font-weight: 600;
+}
+.prose h3 { font-size: 1.05rem; margin: 1.9rem 0 .5rem; font-weight: 600; }
+.prose ul, .prose ol { max-width: var(--measure); padding-left: 1.3rem; }
+.prose li { margin-bottom: .45rem; }
+
+.callout {
+  border-left: 2px solid var(--accent);
+  background: var(--accent-soft);
+  padding: 1rem 1.25rem;
+  margin: 1.7rem 0;
+  border-radius: 0 3px 3px 0;
+  max-width: var(--measure);
+}
+.callout p { margin-bottom: .6rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+pre {
+  background: var(--space-sunk);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: .95rem 1.05rem;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: .76rem;
+  line-height: 1.6;
+  max-width: 45rem;
+  color: var(--ink-2);
+}
+code { font-family: var(--mono); font-size: .88em; }
+pre code { font-size: inherit; color: inherit; }
+
+/* The single quiet aside. Original prose, not a quotation. */
+.aside {
+  border-left: 2px solid var(--rule-strong);
+  padding-left: 1.15rem;
+  margin: 1.9rem 0 0;
+  color: var(--ink-3);
+  font-size: .93rem;
+  font-style: italic;
+  max-width: 32rem;
+}
+
+/* ---------------------------------------------------------------- footer */
+
+.site-foot {
+  border-top: 1px solid var(--rule);
+  background: var(--space-sunk);
+  padding-block: 3rem;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+}
+.foot-grid p { color: var(--ink-2); font-size: .94rem; }
+.foot-grid a { color: var(--ink-2); }
+.foot-grid a:hover { color: var(--accent); }
+.updated { margin-top: 1.7rem; }
+
+/* ---------------------------------------------------------------- responsive */
+
+@media (max-width: 56rem) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 2.2rem; }
+  .hero-aside { display: flex; flex-wrap: wrap; gap: 1.6rem; align-items: flex-start; }
+  .facts { margin-top: 0; flex: 1 1 16rem; border-top: 0; }
+  .facts div:first-child { border-top: 1px solid var(--rule); }
+  .themes > div { grid-template-columns: minmax(0, 1fr); }
+  .records > div { grid-template-columns: minmax(0, 1fr) auto; }
+  .records .when { grid-column: 1 / -1; order: -1; }
+  .foot-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 40rem) {
+  :root { --gutter: 0rem; }
+  body { font-size: 1rem; }
+  .wrap { padding-inline: 1rem; }
+  .hero { padding-block: 2.6rem 2.2rem; }
+  .hero::after { right: -55%; top: -18%; width: 150%; }
+  .section { grid-template-columns: minmax(0, 1fr); }
+  .section > .num { grid-column: 1; padding-top: 0; margin-bottom: .55rem; }
+  .section > .body { grid-column: 1; }
+  .masthead .wrap { flex-wrap: wrap; gap: .5rem; }
+  .nav { gap: .2rem .9rem; }
+  .bib { padding-left: 1.6rem; }
+  .records > div { grid-template-columns: minmax(0, 1fr); }
+  .records .amount { justify-self: start; }
+  .continue { margin-top: 2rem; }
+}
+
+/* ---------------------------------------------------------------- print */
+
+@media print {
+  .masthead, .colophon, #theme-toggle, .actions, .skip, .continue { display: none !important; }
+  .hero::before, .hero::after { display: none !important; }
+  body { background: #fff; color: #000; font-size: 10.5pt; }
+  .bib > li, .records > div { color: #000; }
+  .section { border-top: 1px solid #999; page-break-inside: avoid; }
+  a { text-decoration: none; color: #000; }
+  .bib .links { display: none; }
+}
