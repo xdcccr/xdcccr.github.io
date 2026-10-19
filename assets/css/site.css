@@ -300,7 +300,7 @@ img { max-width: 100%; height: auto; }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 14rem;
+  grid-template-columns: minmax(0, 1fr) 21rem;
   gap: 3.5rem;
   align-items: start;
 }
@@ -674,7 +674,16 @@ pre code { font-size: inherit; color: inherit; }
   color: var(--ink);
   text-wrap: pretty;
 }
-.aside blockquote + blockquote { margin-top: 1.05rem; }
+.aside blockquote + blockquote { margin-top: .95rem; }
+
+/* In the hero column the quotation is the whole "about" now, and the column
+   is narrower than a text block, so ease the type down a step. */
+.hero-aside .aside {
+  margin: 1.7rem 0 0;
+  max-width: none;
+}
+.hero-aside .aside blockquote { font-size: .98rem; line-height: 1.42; }
+.hero-aside .aside figcaption { font-size: .78rem; }
 .aside blockquote p { margin: 0; max-width: none; }
 /* Typographic quote marks, so the markup stays clean text */
 .aside blockquote p::before { content: "\201C"; }

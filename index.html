@@ -85,7 +85,6 @@
   <div class="wrap">
     <a class="brand" href="/">Xiaoyue Xiong</a>
     <nav class="nav" aria-label="Sections">
-      <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#software">Software</a>
@@ -141,19 +140,34 @@
       <div class="hero-aside">
         <img class="portrait" src="assets/img/profile.jpg" width="140" height="140"
              alt="Xiaoyue Xiong">
+
+      <!-- Two genuine quotations, both checked word for word against the text
+         of Foundation. The first is from the Encyclopedia Galactica entry on
+         psychohistory; the second is Salvor Hardin explaining to Verisof why
+         Seldon's psychohistory cannot be applied to them. Do not paraphrase
+         either of them or change the wording. The leading ellipsis in the
+         first marks it as a fragment of a longer sentence, which it is. -->
+      <figure class="aside">
+      <blockquote>
+        <p>…the human conglomerate being dealt with is sufficiently large for
+           valid statistical treatment.</p>
+        <footer>Encyclopedia Galactica, on psychohistory</footer>
+      </blockquote>
+
+      <blockquote>
+        <p>He couldn’t work with individuals over any length of time.</p>
+        <footer>Salvor Hardin, on Hari Seldon</footer>
+      </blockquote>
+
+      <figcaption>
+        Both from Isaac Asimov’s <cite>Foundation</cite>. Psychohistory needed
+        crowds, and could not follow one person through time.
+        <span class="src">
+          What a pity — and what a question worth a thousand years of study.
+        </span>
+      </figcaption>
+      </figure>
         <dl class="facts">
-          <div>
-            <dt class="kicker">Field</dt>
-            <dd>Quantitative methodology and psychometrics</dd>
-          </div>
-          <div>
-            <dt class="kicker">Methods</dt>
-            <dd>Multilevel, dynamic and continuous-time models; reliability; machine learning</dd>
-          </div>
-          <div>
-            <dt class="kicker">Applications</dt>
-            <dd>Individual development, prevention and intervention, bullying among children and adolescents</dd>
-          </div>
           <div>
             <dt class="kicker">Status</dt>
             <dd>On the academic and research job market</dd>
@@ -161,80 +175,13 @@
         </dl>
       </div>
 
-      <a class="continue kicker" href="#about">Continue — about &amp; research</a>
-    </div>
-  </section>
-
-  <!-- ===================================================== about -->
-  <section class="section wrap" id="about">
-    <p class="num kicker">01</p>
-    <div class="body">
-      <h2>About</h2>
-
-      <!-- ===================================================================
-           TO BE WRITTEN — your own research summary, in your own voice.
-           Replace the whole .empty-state block below with two or three <p>
-           paragraphs. Three to five sentences each is plenty.
-
-           RULE: do not repeat what another section already shows. Research,
-           Publications and Software & Codes each speak for themselves further
-           down the page, and everything else is in the CV. So no listing
-           papers here, and no walking through BurstiVAR and Bursti-CTVAR.
-           (That is exactly what the removed draft got wrong.)
-
-           What is left for About, and only About, is the framing a reader
-           cannot get from a list:
-             - the kind of problem you work on: longitudinal data carrying
-               long-term change (trends) AND short-term fluctuation
-               (dynamics) at the same time
-             - why handling heterogeneity between people properly matters
-             - how the methodological and the applied sides feed each other
-             - what you are looking for next
-
-           The earlier draft is not lost — it is in git history at commit
-           cb29afe. Ask me for it back if you would rather edit than start
-           from a blank page, but note it breaks the rule above.
-
-           The italic psychohistory line below is separate and stays.
-           =================================================================== -->
-
-      <div class="empty-state">
-        <p><strong>To be added.</strong></p>
-      </div>
-
-      <!-- Two genuine quotations, both checked word for word against the text
-           of Foundation. The first is from the Encyclopedia Galactica entry on
-           psychohistory; the second is Salvor Hardin explaining to Verisof why
-           Seldon's psychohistory cannot be applied to them. Do not paraphrase
-           either of them or change the wording. The leading ellipsis in the
-           first marks it as a fragment of a longer sentence, which it is. -->
-      <figure class="aside">
-        <blockquote>
-          <p>…the human conglomerate being dealt with is sufficiently large for
-             valid statistical treatment.</p>
-          <footer>Encyclopedia Galactica, on psychohistory</footer>
-        </blockquote>
-
-        <blockquote>
-          <p>He couldn’t work with individuals over any length of time.</p>
-          <footer>Salvor Hardin, on Hari Seldon</footer>
-        </blockquote>
-
-        <figcaption>
-          Both from Isaac Asimov’s <cite>Foundation</cite>. Psychohistory needed
-          crowds, and could not follow one person through time.
-          <span class="src">
-            What a pity — and what a question worth a thousand years of study.
-          </span>
-        </figcaption>
-      </figure>
-
+      <a class="continue kicker" href="#research">Continue — research</a>
     </div>
   </section>
 
   <!-- ===================================================== research -->
   <section class="section wrap" id="research">
-    <p class="num kicker">02</p>
+    <p class="num kicker">01</p>
     <div class="body">
       <h2>Research</h2>
       <div class="themes">
@@ -298,7 +245,7 @@
 
   <!-- ===================================================== publications -->
   <section class="section wrap" id="publications">
-    <p class="num kicker">03</p>
+    <p class="num kicker">02</p>
     <div class="body">
       <h2>Publications</h2>
 
@@ -409,7 +356,7 @@
 
   <!-- ===================================================== software -->
   <section class="section wrap" id="software">
-    <p class="num kicker">04</p>
+    <p class="num kicker">03</p>
     <div class="body">
       <h2>Software &amp; Codes</h2>
 
@@ -445,6 +392,22 @@
           <p class="actions">
             <a class="btn" href="https://github.com/xdcccr/mlGAR">Repository</a>
             <a class="btn" href="https://doi.org/10.1080/00273171.2025.2587286">The paper</a>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://github.com/yanlingli1/gradual-abrupt-changes-bayesian">gradual-abrupt-changes-bayesian</a></h3>
+          <p class="kicker">Co-authored · maintained by Yanling Li</p>
+          <p>
+            Simulation code, shared utilities and vignettes behind the entropy and
+            model-fit measures that tell a genuine structural break apart from slow
+            drift in Bayesian longitudinal models — and that say when the two cannot
+            be told apart at all. I am a co-author on the paper; the repository is
+            Yanling Li's.
+          </p>
+          <p class="actions">
+            <a class="btn" href="https://github.com/yanlingli1/gradual-abrupt-changes-bayesian">Repository</a>
+            <a class="btn" href="https://doi.org/10.1111/bmsp.70029">The paper</a>
           </p>
         </article>
       </div>
