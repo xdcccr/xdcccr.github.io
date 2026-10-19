@@ -499,43 +499,6 @@ img { max-width: 100%; height: auto; }
 .records .where { color: var(--ink-3); font-size: .88rem; display: block; font-weight: 400; }
 .records .amount { font-family: var(--mono); font-size: .78rem; color: var(--accent); white-space: nowrap; }
 
-/* research themes */
-.themes { margin: 0; }
-.themes > div {
-  display: grid;
-  grid-template-columns: 13.5rem minmax(0, 1fr);
-  gap: .4rem 1.75rem;
-  padding: 1.2rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-.themes > div:first-child { border-top: 1px solid var(--rule); }
-.themes h3 {
-  margin: 0;
-  font-family: var(--display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-.themes h3 a { text-decoration-color: var(--rule-strong); }
-.themes p { margin: 0; font-size: .94rem; color: var(--ink-2); max-width: 34rem; }
-.themes .tag { display: block; margin-top: .3rem; }
-
-/* slides, posters and anything else attached to a research thread */
-.themes .links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .3rem .9rem;
-  margin-top: .55rem;
-}
-.themes .links a {
-  font-family: var(--mono);
-  font-size: .7rem;
-  letter-spacing: .06em;
-  color: var(--ink-3);
-  text-decoration-color: var(--rule-strong);
-  overflow-wrap: anywhere;
-}
-.themes .links a:hover { color: var(--accent); }
 
 /* ---------------------------------------------------------------- bibliography */
 
@@ -758,7 +721,6 @@ pre code { font-size: inherit; color: inherit; }
   .hero-aside { display: flex; flex-wrap: wrap; gap: 1.6rem; align-items: flex-start; }
   .facts { margin-top: 0; flex: 1 1 16rem; border-top: 0; }
   .facts div:first-child { border-top: 1px solid var(--rule); }
-  .themes > div { grid-template-columns: minmax(0, 1fr); }
   .records > div { grid-template-columns: minmax(0, 1fr) auto; }
   .records .when { grid-column: 1 / -1; order: -1; }
   .foot-grid { grid-template-columns: minmax(0, 1fr); }
