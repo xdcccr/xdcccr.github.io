@@ -171,18 +171,7 @@ img { max-width: 100%; height: auto; }
 /* My name inside a citation. Scannable without being loud. */
 .me { color: var(--accent); font-weight: 600; }
 
-/* ---------------------------------------------------------------- colophon + nav */
-
-.colophon {
-  border-bottom: 1px solid var(--rule);
-  background: var(--space-sunk);
-}
-.colophon .wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .4rem 1.8rem;
-  padding-block: .6rem;
-}
+/* ---------------------------------------------------------------- nav */
 
 .masthead {
   position: sticky;
@@ -756,7 +745,7 @@ pre code { font-size: inherit; color: inherit; }
 /* ---------------------------------------------------------------- print */
 
 @media print {
-  .masthead, .colophon, #theme-toggle, .actions, .skip, .continue { display: none !important; }
+  .masthead, #theme-toggle, .actions, .skip, .continue { display: none !important; }
   .hero::before, .hero::after { display: none !important; }
   body { background: #fff; color: #000; font-size: 10.5pt; }
   .bib > li, .records > div { color: #000; }
