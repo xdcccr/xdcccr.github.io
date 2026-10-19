@@ -271,20 +271,6 @@ img { max-width: 100%; height: auto; }
   opacity: .5;
 }
 
-/* One faint arc, far behind everything — a horizon rather than a galaxy. */
-.hero::after {
-  content: "";
-  position: absolute;
-  right: -28%;
-  top: -42%;
-  width: 92%;
-  aspect-ratio: 1;
-  border: 1px solid var(--rule-strong);
-  border-radius: 50%;
-  opacity: .5;
-  pointer-events: none;
-}
-
 .hero > .wrap { position: relative; z-index: 1; }
 
 .hero-grid {
@@ -661,7 +647,6 @@ img { max-width: 100%; height: auto; }
   body { font-size: 1rem; }
   .wrap { padding-inline: 1rem; }
   .hero { padding-block: 2.6rem 2.2rem; }
-  .hero::after { right: -55%; top: -18%; width: 150%; }
   .section { grid-template-columns: minmax(0, 1fr); }
   .section > .num { grid-column: 1; padding-top: 0; margin-bottom: .55rem; }
   .section > .body { grid-column: 1; }
@@ -687,7 +672,7 @@ img { max-width: 100%; height: auto; }
 
 @media print {
   .masthead, #theme-toggle, .actions, .skip, .continue { display: none !important; }
-  .hero::before, .hero::after { display: none !important; }
+  .hero::before { display: none !important; }
   body { background: #fff; color: #000; font-size: 10.5pt; }
   .bib > li, .records > div { color: #000; }
   .section { border-top: 1px solid #999; page-break-inside: avoid; }
