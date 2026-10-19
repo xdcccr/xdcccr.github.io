@@ -626,7 +626,8 @@ pre {
 code { font-family: var(--mono); font-size: .88em; }
 pre code { font-size: inherit; color: inherit; }
 
-/* The single quiet aside. Original prose, not a quotation. */
+/* The single quiet aside. Original prose, NOT a quotation — the source note
+   credits Asimov with the concept of psychohistory, not with these words. */
 .aside {
   border-left: 2px solid var(--rule-strong);
   padding-left: 1.15rem;
@@ -636,6 +637,15 @@ pre code { font-size: inherit; color: inherit; }
   font-style: italic;
   max-width: 32rem;
 }
+.aside .src {
+  display: block;
+  margin-top: .6rem;
+  font-style: normal;
+  font-size: .8rem;
+  color: var(--ink-3);
+  opacity: .85;
+}
+.aside cite { font-style: italic; }
 
 /* ---------------------------------------------------------------- footer */
 

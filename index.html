@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Xiaoyue Xiong — Quantitative Methodology &amp; Psychometrics</title>
-<meta name="description" content="Xiaoyue Xiong is a Ph.D. candidate in quantitative methodology at Penn State. She builds multilevel and continuous-time dynamic models for intensive longitudinal and measurement burst data, including BurstiVAR and Bursti-CTVAR.">
+<meta name="description" content="Xiaoyue Xiong is a Ph.D. candidate in quantitative methodology at Penn State. She develops longitudinal models for long-term trends and short-term dynamics that account properly for individual differences, and works on reliability and machine learning methods for development, prevention and adolescent mental health.">
 <link rel="canonical" href="https://xdcccr.github.io/">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Xiaoyue Xiong — Quantitative Methodology &amp; Psychometrics">
-<meta property="og:description" content="Multilevel and continuous-time dynamic models for intensive longitudinal and measurement burst data.">
+<meta property="og:description" content="Longitudinal models for long-term trends and short-term dynamics, built to take the differences between people seriously.">
 <meta property="og:url" content="https://xdcccr.github.io/">
 <meta name="twitter:card" content="summary">
 
@@ -46,11 +46,17 @@
   "knowsAbout": [
     "Quantitative methodology",
     "Psychometrics",
+    "Longitudinal data analysis",
     "Multilevel vector autoregressive models",
     "Continuous-time dynamic models",
     "Intensive longitudinal data",
     "Measurement burst designs",
-    "Bayesian estimation"
+    "Bayesian estimation",
+    "Individual differences and heterogeneity",
+    "Reliability",
+    "Machine learning for longitudinal data",
+    "Prevention and intervention science",
+    "Adolescent mental health"
   ],
   "identifier": "https://orcid.org/0000-0002-8843-2216",
   "sameAs": [
@@ -103,8 +109,9 @@
         </p>
 
         <p class="lede">
-          I build multilevel, continuous-time models that separate where a person is
-          heading over months and years from how they move within a single day.
+          I develop longitudinal models that separate long-term trends from
+          short-term dynamics, and that treat the differences between people as
+          part of the model rather than noise.
         </p>
 
         <div class="actions">
@@ -133,7 +140,11 @@
           </div>
           <div>
             <dt class="kicker">Methods</dt>
-            <dd>Bayesian multilevel and continuous-time dynamic models</dd>
+            <dd>Multilevel, dynamic and continuous-time models; reliability; machine learning</dd>
+          </div>
+          <div>
+            <dt class="kicker">Applications</dt>
+            <dd>Individual development, prevention and intervention, adolescent mental health</dd>
           </div>
           <div>
             <dt class="kicker">Status</dt>
@@ -152,44 +163,42 @@
     <div class="body">
       <h2>About</h2>
 
-      <p>
-        I work on data that arrive many times a day and then keep arriving for years:
-        mood reported four times daily for a week, a diary kept each night, a cohort
-        of adolescents measured again every spring. Data like this carry two questions
-        at once — where is this person heading over the long run, and what governs them
-        over the course of a day. Most available methods answer one of the two and
-        quietly absorb the other into the residuals, which is how a developmental trend
-        ends up masquerading as a strong autoregressive effect.
-      </p>
+      <!-- ===================================================================
+           TO BE WRITTEN — your own research summary, in your own voice.
+           Replace the whole .empty-state block below with two or three <p>
+           paragraphs. Three to five sentences each is plenty.
 
-      <p>
-        My dissertation is about <strong>measurement burst designs</strong> — short,
-        dense bursts of observation separated by long gaps — and models that do them
-        justice. <a href="burstivar/">BurstiVAR</a> estimates within-person vector
-        autoregressive dynamics while free person- and burst-specific intercepts absorb
-        the across-burst trend, so nothing has to be assumed about its functional form.
-        <a href="bursti-ctvar/">Bursti-CTVAR</a> moves that idea into continuous time,
-        where the long gaps between bursts and the irregular spacing inside them become
-        part of the model rather than a nuisance for the analyst. Both are Bayesian and
-        multilevel, written for Stan and JAGS, and released with the simulation code and
-        runnable tutorials behind them.
-      </p>
+           Worth covering, based on what you said you want it to say:
+             - longitudinal models for long-term change (trends) AND
+               short-term fluctuation (dynamics), together
+             - accounting for heterogeneity between people properly
+             - the wider interests: other longitudinal models, reliability
+               analysis, machine learning methods
+             - where it is applied: individual development, prevention and
+               intervention, child and adolescent bullying and mental health
 
-      <p>
-        Applied collaboration keeps the methods honest. I have worked on bullying
-        victimisation and depressive symptoms among middle-school students, on what
-        distinguishes adolescents who attempt suicide from those who do not, on daily
-        meaning and relationship quality in an eight-week intervention trial, and on a
-        multi-laboratory effort to predict affect from physiology whose most useful
-        result was a clear account of where machine learning fell short. Those projects
-        set my standard for methods work: a model is worth publishing when it changes
-        what a substantive researcher is entitled to conclude.
-      </p>
+           The earlier draft is not lost — ask me for it back if you want a
+           starting point to edit rather than a blank page.
 
+           There was also one italic line here nodding to psychohistory
+           (.aside). It came out with the draft; say the word and it goes back.
+           =================================================================== -->
+
+      <div class="empty-state">
+        <p><strong>To be added.</strong></p>
+      </div>
+
+      <!-- This is an original line, not a quotation from Asimov. The source
+           note below credits the CONCEPT of psychohistory, which is his; the
+           wording is yours. Do not turn it into a quotation. -->
       <p class="aside">
-        Psychohistory only ever worked in the aggregate, and only across centuries.
-        The real version runs on much less — a few weeks of one person's days — and
-        has to stay honest about what it cannot see.
+        Psychohistory only ever worked in the aggregate, and only across
+        centuries. The real version runs on much less — a few weeks of one
+        person's days — and has to stay honest about what it cannot see.
+        <span class="src">
+          Psychohistory is Isaac Asimov's invention, from
+          <cite>Foundation</cite> (1951).
+        </span>
       </p>
 
       <h3 class="kicker subhead">Education</h3>
@@ -234,8 +243,8 @@
     <div class="body">
       <h2>Research</h2>
       <p class="section-note">
-        Four problems recur in my work. Each one started as an obstacle in somebody
-        else's analysis and turned into a methodological paper.
+        Five threads run through my work. Most of them started as an obstacle in
+        somebody else's analysis and turned into a methodological paper.
       </p>
 
       <div class="themes">
@@ -280,6 +289,17 @@
             cross-lagged effect. I study what precision means for individual-level
             dynamic parameters in multilevel continuous-time models, and what a
             design has to deliver before those parameters can be trusted.
+          </p>
+        </div>
+        <div>
+          <h3>Where machine learning actually helps
+            <span class="kicker tag">Forecasting</span>
+          </h3>
+          <p>
+            Wavelet-based deep learning for forecasting affect across several time
+            scales, and a multi-laboratory assessment of how far machine learning
+            gets with physiological markers of affect. Both are collaborative, and
+            both are as useful for marking the limits as for the predictions.
           </p>
         </div>
       </div>
