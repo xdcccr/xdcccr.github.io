@@ -443,6 +443,11 @@ img { max-width: 100%; height: auto; }
   max-width: var(--measure);
 }
 
+/* Sections without a .section-note need their own breathing room under the
+   heading. These margins collapse with the h2's own, so the gap is 1.7rem
+   either way and a .section-note still sits tight under its heading. */
+.section h2 + *:not(.section-note) { margin-top: 1.7rem; }
+
 .subhead {
   margin: 2.8rem 0 1rem;
   padding-bottom: .45rem;
@@ -548,8 +553,7 @@ img { max-width: 100%; height: auto; }
 
 /* ---------------------------------------------------------------- software */
 
-/* margin-top stands in for the .section-note spacing other sections have */
-.software { display: grid; gap: 1.1rem; margin: 1.7rem 0 0; }
+.software { display: grid; gap: 1.1rem; margin: 0; }
 
 .software article {
   border: 1px solid var(--rule);
