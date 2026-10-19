@@ -329,9 +329,20 @@ img { max-width: 100%; height: auto; }
   font-size: clamp(1.15rem, 2.1vw, 1.35rem);
   line-height: 1.5;
   max-width: 31rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-wrap: pretty;
   color: var(--ink);
+}
+
+/* The second half of the positioning statement: the breadth of the work.
+   Set smaller than the lede so the hero still has one clear opening line. */
+.lede-more {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 33rem;
+  margin-bottom: 2rem;
+  color: var(--ink-2);
+  text-wrap: pretty;
 }
 
 .actions {
@@ -665,6 +676,9 @@ pre code { font-size: inherit; color: inherit; }
   gap: 2rem;
 }
 .foot-grid p { color: var(--ink-2); font-size: .94rem; }
+/* The email address is one unbreakable 21-character token; without this it
+   pushes the page sideways on a narrow screen at large text sizes. */
+.foot-grid p, .foot-grid a { overflow-wrap: anywhere; }
 .foot-grid a { color: var(--ink-2); }
 .foot-grid a:hover { color: var(--accent); }
 .updated { margin-top: 1.7rem; }
