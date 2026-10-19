@@ -730,11 +730,6 @@ pre code { font-size: inherit; color: inherit; }
   color: var(--ink-3);
 }
 .aside cite { font-style: italic; }
-.aside .src {
-  display: block;
-  margin-top: .45rem;
-  color: var(--ink-2);
-}
 
 /* ---------------------------------------------------------------- footer */
 
