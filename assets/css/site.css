@@ -656,26 +656,41 @@ pre {
 code { font-family: var(--mono); font-size: .88em; }
 pre code { font-size: inherit; color: inherit; }
 
-/* The single quiet aside. Original prose, NOT a quotation — the source note
-   credits Asimov with the concept of psychohistory, not with these words. */
+/* A real quotation from Foundation, with its attribution and the one line
+   connecting it to the work. Verified against the text — see the comment in
+   index.html before changing any of the wording. */
 .aside {
-  border-left: 2px solid var(--rule-strong);
-  padding-left: 1.15rem;
-  margin: 1.9rem 0 0;
-  color: var(--ink-3);
-  font-size: .93rem;
-  font-style: italic;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.3rem;
+  margin: 2.1rem 0 0;
   max-width: 32rem;
 }
-.aside .src {
-  display: block;
-  margin-top: .6rem;
-  font-style: normal;
-  font-size: .8rem;
+.aside blockquote {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.12rem;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.aside blockquote p { margin: 0; max-width: none; }
+/* Typographic quote marks, so the markup stays clean text */
+.aside blockquote p::before { content: "\201C"; }
+.aside blockquote p::after  { content: "\201D"; }
+
+.aside figcaption {
+  margin-top: .7rem;
+  font-size: .82rem;
+  line-height: 1.5;
   color: var(--ink-3);
-  opacity: .85;
 }
 .aside cite { font-style: italic; }
+.aside .src {
+  display: block;
+  margin-top: .45rem;
+  color: var(--ink-2);
+}
 
 /* ---------------------------------------------------------------- footer */
 
