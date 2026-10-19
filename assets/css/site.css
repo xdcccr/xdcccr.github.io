@@ -537,6 +537,9 @@ img { max-width: 100%; height: auto; }
   max-width: 45rem;
   text-wrap: pretty;
   color: var(--ink-2);
+  /* long journal and article titles are the only words here that can exceed a
+     narrow column at very large text sizes; break them rather than the page */
+  overflow-wrap: break-word;
 }
 .bib > li:last-child { border-bottom: 0; margin-bottom: 0; }
 
@@ -585,6 +588,7 @@ img { max-width: 100%; height: auto; }
   border-radius: 4px;
   padding: 1.3rem 1.5rem;
   background: var(--space-raised);
+  min-width: 0;   /* a grid item defaults to min-width:auto and will not shrink */
 }
 .software h3 {
   margin: 0 0 .15rem;
@@ -763,6 +767,16 @@ pre code { font-size: inherit; color: inherit; }
   .records > div { grid-template-columns: minmax(0, 1fr); }
   .records .amount { justify-self: start; }
   .continue { margin-top: 2rem; }
+
+  /* At 200% text size a button's intrinsic width plus the card's side padding
+     exceeded the column and pushed the page sideways. Trim both, and let a
+     label break as a last resort so there is no hard floor left. */
+  .software article { padding: 1.1rem 1rem; }
+  .btn {
+    padding: .55rem .72rem;
+    letter-spacing: .08em;
+    overflow-wrap: anywhere;
+  }
 }
 
 /* ---------------------------------------------------------------- print */
