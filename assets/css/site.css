@@ -99,7 +99,15 @@ body {
   font-size: 1.0313rem;
   line-height: 1.68;
   -webkit-font-smoothing: antialiased;
+
+  /* Keep the footer at the bottom of the window on short pages (the notes
+     index, a single note, the 404) instead of leaving it floating mid-screen. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+body > main { flex: 1 0 auto; }
+body > .site-foot { flex-shrink: 0; }
 
 p { margin: 0 0 1.1em; max-width: var(--measure); }
 p:last-child { margin-bottom: 0; }
