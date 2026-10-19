@@ -5,7 +5,7 @@
    Direction: "Terminus" — deep blue-black, a cool palette, one warm gold used
    as punctuation, and composition doing most of the work. The bibliography
    keeps the scholarly typography of the archival draft: numbered entries,
-   hanging indents, the author's own name marked in gold.
+   hanging indents, my own name marked in gold.
 
    To change the colours, edit the custom properties in the two :root blocks
    below and nothing else. Everything on the site reads from them.
@@ -168,7 +168,7 @@ img { max-width: 100%; height: auto; }
   color: var(--ink-3);
 }
 
-/* Her name inside a citation. Scannable without being loud. */
+/* My name inside a citation. Scannable without being loud. */
 .me { color: var(--accent); font-weight: 600; }
 
 /* ---------------------------------------------------------------- colophon + nav */
