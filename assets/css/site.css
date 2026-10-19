@@ -531,18 +531,6 @@ img { max-width: 100%; height: auto; }
 }
 
 .bib .title { color: var(--ink); font-weight: 500; }
-/* A method name inside a title links to its own page. Keep it reading as part
-   of the citation — same colour and weight, marked only by a quiet underline
-   that warms up on hover. */
-.bib .title a {
-  color: inherit;
-  text-decoration-color: var(--rule-strong);
-  text-underline-offset: .2em;
-}
-.bib .title a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
-}
 .bib .venue { font-style: italic; }
 .bib .status {
   font-family: var(--mono);
