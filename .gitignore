@@ -8,3 +8,6 @@ desktop.ini
 *~
 .vscode/
 .idea/
+
+# The maintenance guide is for you, not for visitors to the public repo.
+MAINTENANCE.md
