@@ -520,6 +520,23 @@ img { max-width: 100%; height: auto; }
 .themes p { margin: 0; font-size: .94rem; color: var(--ink-2); max-width: 34rem; }
 .themes .tag { display: block; margin-top: .3rem; }
 
+/* slides, posters and anything else attached to a research thread */
+.themes .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem .9rem;
+  margin-top: .55rem;
+}
+.themes .links a {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .06em;
+  color: var(--ink-3);
+  text-decoration-color: var(--rule-strong);
+  overflow-wrap: anywhere;
+}
+.themes .links a:hover { color: var(--accent); }
+
 /* ---------------------------------------------------------------- bibliography */
 
 /* Native <ol> numbering rather than a CSS counter, so that start="7" on the
