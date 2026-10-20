@@ -72,6 +72,11 @@
   color-scheme: light;
 }
 
+/* The starfield is a night-sky figure. Inverted to dark specks on white it
+   reads as dust rather than stars, so the light theme does without it. */
+:root[data-theme="light"] body::before,
+:root[data-theme="light"] body::after { display: none; }
+
 /* ---------------------------------------------------------------- base */
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -248,28 +253,120 @@ img { max-width: 100%; height: auto; }
   border-bottom: 1px solid var(--rule);
 }
 
-/* A sparse, completely static star field. No canvas, no animation, nothing
-   to pause — so it costs nothing and needs no reduced-motion special case. */
-.hero::before {
+/* A completely static star field. No canvas, no animation, nothing to
+   pause — so it costs nothing and needs no reduced-motion special case.
+
+   It sits on the page rather than on the hero, so every page carries it,
+   and it is fixed, so the density stays the same however long a page is.
+   At z-index 0, with the masthead, main and the footer raised above it:
+   the software cards and the footer have opaque backgrounds, so they
+   cover the stars rather than letting them show through. */
+body::before,
+body::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
+}
+
+body::before {
   background-image:
-    radial-gradient(1.4px 1.4px at 12% 18%,  var(--star), transparent 100%),
-    radial-gradient(1px   1px   at 27% 62%,  var(--star), transparent 100%),
-    radial-gradient(1.6px 1.6px at 41% 11%,  var(--star), transparent 100%),
-    radial-gradient(1px   1px   at 56% 44%,  var(--star), transparent 100%),
-    radial-gradient(1.2px 1.2px at 68% 23%,  var(--star), transparent 100%),
-    radial-gradient(1px   1px   at 73% 78%,  var(--star), transparent 100%),
-    radial-gradient(1.5px 1.5px at 84% 37%,  var(--star), transparent 100%),
-    radial-gradient(1px   1px   at 91% 66%,  var(--star), transparent 100%),
-    radial-gradient(1.1px 1.1px at 33% 86%,  var(--star), transparent 100%),
-    radial-gradient(1.3px 1.3px at 7%  74%,  var(--star), transparent 100%),
-    radial-gradient(1px   1px   at 62% 91%,  var(--star), transparent 100%),
-    radial-gradient(1.2px 1.2px at 95% 14%,  var(--star), transparent 100%);
+    radial-gradient(1.3px 1.3px at 57% 62%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 29% 64%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 89% 21%, var(--star), transparent 100%),
+    radial-gradient(1.4px 1.4px at 61% 50%, var(--star), transparent 100%),
+    radial-gradient(1.4px 1.4px at 53% 45%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 63% 31%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 50% 8%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 73% 43%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 91% 55%, var(--star), transparent 100%),
+    radial-gradient(1.4px 1.4px at 13% 8%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 29% 23%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 74% 15%, var(--star), transparent 100%),
+    radial-gradient(0.8px 0.8px at 25% 29%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 52% 32%, var(--star), transparent 100%),
+    radial-gradient(0.8px 0.8px at 20% 13%, var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 86% 73%, var(--star), transparent 100%),
+    radial-gradient(0.9px 0.9px at 14% 17%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 32% 8%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 21% 21%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 46% 48%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 54% 77%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 9% 48%, var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 86% 4%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 45% 33%, var(--star), transparent 100%),
+    radial-gradient(0.8px 0.8px at 50% 61%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 10% 60%, var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 86% 93%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 4% 40%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 20% 70%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 75% 94%, var(--star), transparent 100%),
+    radial-gradient(1.4px 1.4px at 44% 79%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 84% 62%, var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 28% 58%, var(--star), transparent 100%),
+    radial-gradient(1.4px 1.4px at 93% 10%, var(--star), transparent 100%),
+    radial-gradient(1.4px 1.4px at 76% 57%, var(--star), transparent 100%),
+    radial-gradient(1.4px 1.4px at 67% 4%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 42% 89%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 4% 76%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 37% 78%, var(--star), transparent 100%),
+    radial-gradient(0.8px 0.8px at 74% 82%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 3% 84%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 33% 15%, var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 35% 50%, var(--star), transparent 100%),
+    radial-gradient(0.9px 0.9px at 12% 42%, var(--star), transparent 100%),
+    radial-gradient(0.8px 0.8px at 25% 5%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 34% 37%, var(--star), transparent 100%),
+    radial-gradient(0.8px 0.8px at 31% 81%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 45% 39%, var(--star), transparent 100%),
+    radial-gradient(0.8px 0.8px at 72% 24%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 17% 95%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 64% 93%, var(--star), transparent 100%),
+    radial-gradient(0.9px 0.9px at 80% 7%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 78% 39%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 87% 43%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 29% 72%, var(--star), transparent 100%),
+    radial-gradient(1.2px 1.2px at 62% 25%, var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 93% 78%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 40% 12%, var(--star), transparent 100%),
+    radial-gradient(1.0px 1.0px at 5% 18%, var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 48% 19%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 15% 52%, var(--star), transparent 100%),
+    radial-gradient(1.4px 1.4px at 11% 85%, var(--star), transparent 100%),
+    radial-gradient(1.3px 1.3px at 39% 58%, var(--star), transparent 100%),
+    radial-gradient(1.1px 1.1px at 97% 49%, var(--star), transparent 100%);
   opacity: .5;
 }
+
+body::after {
+  background-image:
+    radial-gradient(2.3px 2.3px at 53% 58%, var(--star), transparent 100%),
+    radial-gradient(2.0px 2.0px at 88% 86%, var(--star), transparent 100%),
+    radial-gradient(1.9px 1.9px at 93% 43%, var(--star), transparent 100%),
+    radial-gradient(1.8px 1.8px at 11% 51%, var(--star), transparent 100%),
+    radial-gradient(2.2px 2.2px at 28% 60%, var(--star), transparent 100%),
+    radial-gradient(1.7px 1.7px at 74% 11%, var(--star), transparent 100%),
+    radial-gradient(2.1px 2.1px at 92% 58%, var(--star), transparent 100%),
+    radial-gradient(1.8px 1.8px at 30% 33%, var(--star), transparent 100%),
+    radial-gradient(2.0px 2.0px at 57% 40%, var(--star), transparent 100%),
+    radial-gradient(2.1px 2.1px at 26% 80%, var(--star), transparent 100%),
+    radial-gradient(1.9px 1.9px at 74% 79%, var(--star), transparent 100%),
+    radial-gradient(2.3px 2.3px at 13% 30%, var(--star), transparent 100%),
+    radial-gradient(2.2px 2.2px at 78% 41%, var(--star), transparent 100%),
+    radial-gradient(2.4px 2.4px at 11% 73%, var(--star), transparent 100%),
+    radial-gradient(1.8px 1.8px at 42% 46%, var(--star), transparent 100%),
+    radial-gradient(1.9px 1.9px at 30% 9%, var(--star), transparent 100%),
+    radial-gradient(2.4px 2.4px at 41% 24%, var(--star), transparent 100%),
+    radial-gradient(2.3px 2.3px at 50% 94%, var(--star), transparent 100%),
+    radial-gradient(1.9px 1.9px at 55% 75%, var(--star), transparent 100%),
+    radial-gradient(1.8px 1.8px at 69% 97%, var(--star), transparent 100%);
+  opacity: .85;
+}
+
+.masthead,
+main,
+.site-foot { position: relative; z-index: 1; }
 
 .hero > .wrap { position: relative; z-index: 1; }
 
@@ -661,7 +758,7 @@ img { max-width: 100%; height: auto; }
 
 @media print {
   .masthead, #theme-toggle, .actions, .skip, .continue { display: none !important; }
-  .hero::before { display: none !important; }
+  body::before, body::after { display: none !important; }
   body { background: #fff; color: #000; font-size: 10.5pt; }
   .bib > li, .records > div { color: #000; }
   .section { border-top: 1px solid #999; page-break-inside: avoid; }
