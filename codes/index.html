@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Software &amp; Codes — Xiaoyue Xiong</title>
+<meta name="description" content="R and JAGS code by Xiaoyue Xiong: BurstiVAR and mlGAR, plus contributions to Bayesian change detection and to dynr.">
+<link rel="canonical" href="https://xdcccr.github.io/codes/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Software &amp; Codes — Xiaoyue Xiong">
+<meta property="og:description" content="Longitudinal models for long-term change and short-term fluctuation that take heterogeneity between people, and dynamic networks, seriously.">
+<meta property="og:url" content="https://xdcccr.github.io/codes/">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/assets/img/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+
+<!-- Set the saved theme before first paint so the page never flashes. -->
+<script>
+(function(){try{var t=localStorage.getItem("xx-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>
+
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/">Xiaoyue Xiong</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="/papers/">Papers</a>
+      <a href="/codes/" aria-current="page">Codes</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" type="button" hidden>Dark</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="section wrap" id="software">
+    <div class="body">
+      <h2>Software &amp; Codes</h2>
+
+      <div class="software">
+        <article>
+          <h3><a href="https://github.com/xdcccr/BurstiVAR">BurstiVAR</a></h3>
+          <p class="kicker">R · JAGS · MIT licence</p>
+          <p>
+            Multilevel VAR for measurement burst designs, together with GoBurstiVAR,
+            a parametric variant that replaces the free burst intercepts with a
+            Gompertz growth function. The repository holds the full parameter-recovery
+            and efficiency simulations, the empirical analysis, the convergence
+            diagnostics behind the appendix tables, the figure scripts, and two runnable
+            tutorials — the BurstiVAR one finishes in about a minute.
+          </p>
+          <p class="actions">
+            <a class="btn" href="https://github.com/xdcccr/BurstiVAR">Repository</a>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://github.com/xdcccr/mlGAR">mlGAR</a></h3>
+          <p class="kicker">R · JAGS</p>
+          <p>
+            Multilevel growth with autoregressive residuals: a Gompertz trend and a
+            multilevel AR(1) process estimated together in one Bayesian model, rather
+            than detrending first and modelling the residuals afterwards. It recovers
+            parameters with as few as five time points per person, where two-stage
+            approaches break down. Includes a tutorial vignette covering data
+            generation, model specification, sampling and diagnostics.
+          </p>
+          <p class="actions">
+            <a class="btn" href="https://github.com/xdcccr/mlGAR">Repository</a>
+            <a class="btn" href="https://doi.org/10.1080/00273171.2025.2587286">The paper</a>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://github.com/yanlingli1/gradual-abrupt-changes-bayesian">gradual-abrupt-changes-bayesian</a></h3>
+          <p class="kicker">Co-authored · maintained by Yanling Li</p>
+          <p>
+            Simulation code, shared utilities and vignettes behind the Bayesian
+            regime-switching framework and the entropy measure used to represent and
+            test gradual and abrupt change together. I ran part of the simulations.
+          </p>
+          <p class="actions">
+            <a class="btn" href="https://github.com/yanlingli1/gradual-abrupt-changes-bayesian">Repository</a>
+            <a class="btn" href="https://doi.org/10.1111/bmsp.70029">The paper</a>
+            <a class="btn" href="https://www.youtube.com/watch?v=Qb0uJT50X_4">Talk (video)</a>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://github.com/mhunter1/dynr">dynr</a></h3>
+          <p class="kicker">R · C · on CRAN · maintained by Michael D. Hunter</p>
+          <p>
+            Dynamic models with regime switching. I built and presented a stochastic
+            approximation EM (SAEM) routine for fitting differential equation models
+            with random effects in dynr (ISDSA, 2022). The package itself is the work
+            of Michael D. Hunter, Sy-Miin Chow and the dynr team.
+          </p>
+          <p class="actions">
+            <a class="btn" href="https://github.com/mhunter1/dynr">Repository</a>
+            <a class="btn" href="https://cran.r-project.org/package=dynr">CRAN</a>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot" id="contact">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="kicker">Contact</p>
+      <p>
+        <a href="mailto:xiaoyue_xiong@psu.edu">xiaoyue_xiong@psu.edu</a><br>
+        027 Health and Human Development Building<br>
+        University Park, PA 16802
+      </p>
+      <p class="kicker updated">Last updated 19 October 2026</p>
+    </div>
+    <div>
+      <p class="kicker">Elsewhere</p>
+      <p>
+        <a href="/cv.pdf" download="Xiaoyue_Xiong_CV.pdf">Curriculum Vitae (PDF)</a><br>
+        <a href="https://github.com/xdcccr">GitHub</a><br>
+        <a href="https://scholar.google.com/citations?user=eAlw4PwAAAAJ">Google Scholar</a><br>
+        <a href="https://orcid.org/0000-0002-8843-2216">ORCID</a><br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js"></script>
+</body>
+</html>
