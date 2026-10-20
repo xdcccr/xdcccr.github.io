@@ -478,6 +478,18 @@ main,
   color: var(--ink-2);
 }
 
+/* A programme and the advisor who supervises it belong together, so the
+   advisor sits under its own degree as a quieter second line rather than
+   in a separate list where the pairing would be lost. */
+.facts .prog { display: block; }
+.facts .adv {
+  display: block;
+  color: var(--ink-3);
+  font-size: .82rem;
+  margin-bottom: .5rem;
+}
+.facts .adv:last-child { margin-bottom: 0; }
+
 /* the quiet "there is more below" cue */
 .continue {
   grid-column: 1 / -1;
