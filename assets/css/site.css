@@ -437,6 +437,11 @@ main,
 }
 .btn:hover { color: var(--accent); border-color: var(--accent); }
 
+/* An icon-only button: square padding, and the glyph inherits the
+   button's colour so it follows the theme and the hover state. */
+.btn-icon { padding: .58rem; }
+.btn-icon svg { display: block; }
+
 .btn-primary {
   background: var(--accent);
   border-color: var(--accent);
